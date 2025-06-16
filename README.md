@@ -4,6 +4,9 @@
 
 This project analyzes employee email sentiment data to uncover communication patterns, detect flight risk indicators, and build a predictive model for monthly sentiment scores. The analysis incorporates natural language sentiment scoring, communication volume trends, and predictive modeling using linear regression.
 
+Access to Final Report:
+- [Full Employee Sentiment Analysis Report](/ESA_Final_Report.docx)
+
 ### Top 3 Employees by Overall Positive Sentiment
 Based on cumulative monthly sentiment scores:
 1. **lydia.delgado@enron.com** -> Sentiment Score of: 66
