@@ -9,21 +9,19 @@ Access to Final Report:
 
 ### Top 3 Employees by Overall Positive Sentiment
 Based on cumulative monthly sentiment scores:
-1. **lydia.delgado@enron.com** -> Sentiment Score of: 66
-2. **johnny.palmer@enron.com** -> Sentiment Score of: 62
-3. **eric.bass@enron.com** -> Sentiment Score of: 56
+1. **lydia.delgado@enron.com** -> Sentiment Score of: 76
+2. **johnny.palmer@enron.com** -> Sentiment Score of: 63
+3. **eric.bass@enron.com** -> Sentiment Score of: 63
 
 ### Top 3 Employees by Overall Negative Sentiment
 Based on cumulative monthly sentiment scores:
-1. **rhonda.denton@enron.com** -> Sentiment Score of: 27
-2. **kayne.coulter@enron.com** -> Sentiment Score of: 36
-3. **don.baughman@enron.com** -> Sentiment Score of: 38
+1. **kayne.coulter@enron.com** -> Sentiment Score of: 43
+2. **kayne.coulter@enron.com** -> Sentiment Score of: 38
+3. **rhonda.denton@enron.com** -> Sentiment Score of: 37
 
 ### Employees Flagged as Flight Risks
 Flagged for sending 4 or more negative messages within a rolling 30-day window:
-- **bobette.riner@ipgdirect.com**
 - **don.baughman@enron.com**
-- **patti.thompson@enron.com**
 - **john.arnold@enron.com**
 
 ### Key Insights
@@ -72,19 +70,27 @@ Grouped the data by `employee` and `month`, calculating:
 ### Task 6: Predictive Modeling
 - Objective: Predict `monthly_sentiment_score` using communication behavior.
 - Model: Linear Regression
-- Features used:
-  - Quantitative: `message_count`, `avg_word_count`, `total_chars`, etc.
-  - Qualitative ratios: `positive_ratio`, `negative_ratio`, `neutral_ratio`
+- Defined features:
+  - Message volume and length: `message_count`, `avg_word_count`, `avg_char_count`, `total_words`, `total_chars`
+  - Sentiment distribution: `positive_ratio`, `negative_ratio`, `neutral_ratio`
+  - Additional features: `words_per_message`, `chars_per_word`, `sentiment_intensity`
+- Target variable:
+     - `monthly_sentiment_score`
 - Outliers in target variable removed using z-score filtering.
 - Results:
   - **MSE**: 1.54
   - **R²**: 0.61
 - Feature importances identified `total_words`, `avg_char_count`, and `positive_ratio` as the most impactful.
+- **Model Improvement Attempts**:
+   - Tested regularized linear models:
+     - **Ridge Regression** R²: 0.58
+     - **Lasso Regression** R²: 0.69 (better fit)
+   - Explored a **Random Forest Regressor** to capture non-linearity:
+     - **Random Forest MSE:** 0.13  
+     - **Random Forest R²:** 0.96 (significantly improved performance)
 
 ### Task 7: Visualization
-- **Residuals Plot**: Evaluated prediction errors to verify model assumptions.
-- **Actual vs Predicted Plot**: Visual comparison of model output.
-- **Flight Risk Timeline Plot**: Scatter plot showing when negative messages were sent by flagged employees.
+- All visuals + explanations contained in visuals folder and full report document.
 
 ---
 
